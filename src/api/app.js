@@ -4,7 +4,7 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
 const { Logger } = require("../utils/log");
-let logger = new Logger("APP", "app");
+let logger = new Logger("API", "api");
 
 function customMorgan() {
   morgan.token("dateNow", function(req, res) {
@@ -12,11 +12,11 @@ function customMorgan() {
   });
 
   return morgan(
-    ":dateNow [:method :status] - [APP]: :url :remote-addr :response-time[0] ms"
+    ":dateNow [:method :status] - [API]: :url :remote-addr :response-time[0] ms"
   );
 }
 
-class App {
+class Api {
   constructor() {
     logger.info("Criando Servidor.");
     this.server = express();
@@ -46,4 +46,4 @@ class App {
   }
 }
 
-module.exports = new App().server;
+module.exports = new Api().server;

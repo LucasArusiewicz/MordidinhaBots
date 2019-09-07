@@ -2,4 +2,4 @@
 !process.env.PORT ? require("dotenv").config() : null;
 
 const { Bot } = require("./src/bot");
-const { App } = require("./src/app");
+const { Api } = require("./src/api");

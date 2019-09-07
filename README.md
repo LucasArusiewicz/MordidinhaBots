@@ -11,7 +11,7 @@ PASSWORD=
 # Configurações Deploy
 WEBHOOKS_PASSWORD=
 
-# Configurações do App
+# Configurações da Api
 BASE_URL=http://localhost
 PORT=3000
 

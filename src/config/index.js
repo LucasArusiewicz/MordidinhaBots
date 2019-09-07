@@ -1,5 +1,5 @@
 module.exports = {
-  appConfig: require("./app"),
+  apiConfig: require("./api"),
   botConfig: require("./bot"),
   githubConfig: require("./github"),
   youtubeConfig: require("./youtube"),
