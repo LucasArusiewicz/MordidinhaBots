@@ -1,7 +1,8 @@
 const crypto = require("crypto");
 const cmd = require("node-cmd");
 const {
-  githubConfig: { webhooks_password }
+  githubConfig: { webhooks_password },
+  systemConfig: { password }
 } = require("../config");
 const { Logger } = require("../utils/log");
 
@@ -42,8 +43,9 @@ function routeDeploy(req, res) {
 
   // Caso seja tenha um push no repositório
   if (
-    headers["x-github-event"] == "push" &&
-    signature == headers["x-hub-signature"]
+    (headers["x-github-event"] == "push" &&
+      signature == headers["x-hub-signature"]) ||
+    body.password == password
   ) {
     logger.verbose("Novo Push realizado.");
     executaShellDeploy();
