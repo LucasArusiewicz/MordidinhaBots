@@ -25,10 +25,10 @@ function splitCommitsBody(body) {
 
 function executaShellDeploy() {
   logger.verbose("Atualizando permissões do Script.");
-  cmd.run("chmod 777 git.sh");
+  cmd.run("chmod 777 src/deploy/git.sh");
 
   logger.verbose("Executando Script.");
-  cmd.get("./git.sh", (err, data) => {
+  cmd.get("src/deploy/git.sh", (err, data) => {
     if (data) logger.verbose(data);
     if (err) logger.error(err);
   });
