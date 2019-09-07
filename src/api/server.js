@@ -6,7 +6,7 @@ let logger = new Logger("API", "api");
 
 const api = require("./api");
 
-api.listen(appConfig.port);
+api.listen(port);
 logger.info("Servidor Criado !");
 logger.info(`${base_url}:${port}`);
 
