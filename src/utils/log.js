@@ -1,4 +1,6 @@
-const { locale, verbose } = require("../config");
+const {
+  systemConfig: { locale, verbose }
+} = require("../config");
 const fs = require("fs");
 
 class Logger {
