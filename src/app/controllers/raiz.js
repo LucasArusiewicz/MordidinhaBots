@@ -1,5 +1,5 @@
 function main(req, res) {
-  res.status(200).json({ message: "teste deploy", status: "ok" });
+  res.status(200).json({ message: "oi", status: "ok" });
 }
 
 module.exports = {
