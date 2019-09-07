@@ -1,4 +1,7 @@
 const { restartProcess } = require("../../utils/system");
+const {
+  botConfig: { admin }
+} = require("../../config");
 
 module.exports.run = async (bot, message, args) => {
   if (message.author.id == admin) {
