@@ -1,9 +1,10 @@
 const { Router } = require("express");
+const {
+  raiz: { main }
+} = require("../controllers");
 
 const routes = new Router();
 
-routes.get("/", (req, res) => {
-  res.status(200).json({ message: "oi", status: "ok" });
-});
+routes.get("/", main);
 
 module.exports = routes;
