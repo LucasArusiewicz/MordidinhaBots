@@ -1,13 +1,15 @@
 const crypto = require("crypto");
 const cmd = require("node-cmd");
-const { githubConfig } = require("../config");
+const {
+  githubConfig: { webhooks_password }
+} = require("../config");
 const { Logger } = require("../utils/log");
 
 let logger = new Logger("DEPLOY", "deploy");
 
 function getAssinaturaGitHubPassword(body) {
   logger.verbose("Pegando Assinatura.");
-  let hmac = crypto.createHmac("sha1", githubConfig.webhooks_password);
+  let hmac = crypto.createHmac("sha1", webhooks_password);
   return "sha1=" + hmac.update(JSON.stringify(body)).digest("hex");
 }
 
@@ -57,5 +59,5 @@ function routeDeploy(req, res) {
 }
 
 module.exports = {
-  routeDeploy: routeDeploy
+  routeDeploy
 };

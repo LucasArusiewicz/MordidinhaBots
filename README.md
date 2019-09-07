@@ -5,6 +5,9 @@ Melhor bots que existe no mundo.
 ### .env
 
 ```
+# Configurações do sistema
+PASSWORD=
+
 # Configurações Deploy
 WEBHOOKS_PASSWORD=
 

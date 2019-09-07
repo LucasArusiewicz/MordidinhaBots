@@ -1,6 +1,8 @@
 const fs = require("fs");
 const { Logger } = require("../../utils/log");
-const { botConfig } = require("../../config");
+const {
+  botConfig: { prefixCmd }
+} = require("../../config");
 
 let logger = new Logger("CMD", "bot");
 let comandos = new Map();
@@ -21,7 +23,7 @@ fs.readdir(__dirname, (err, files) => {
     const { name, run, help } = require(`./${file}`);
     helpers.push(`${name}: ${help}`);
     comandos.set(name, run);
-    logger.verbose(`${countCmd}: ${botConfig.prefixCmd}${name} carregado`);
+    logger.verbose(`${countCmd}: ${prefixCmd}${name} carregado`);
     countCmd++;
   });
 });

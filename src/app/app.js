@@ -1,5 +1,5 @@
 const express = require("express");
-const routes = require("./routes");
+const { raiz, bot, sistema } = require("./routes");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
@@ -34,7 +34,15 @@ class App {
 
   routes() {
     logger.verbose("Carregando Rotas.");
-    this.server.use(routes);
+
+    // Rotas Raiz
+    this.server.use("/", raiz);
+
+    // Rotas Bot
+    this.server.use("/bot", bot);
+
+    // Rotas Sistema
+    this.server.use("/sistema", sistema);
   }
 }
 

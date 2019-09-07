@@ -1,9 +1,11 @@
-const { botConfig } = require("../../config");
+const {
+  botConfig: { admin }
+} = require("../../config");
 const { Logger } = require("../../utils/log");
 let logger = new Logger("ST");
 
 module.exports.run = async (bot, message, args) => {
-  if (message.author.id == botConfig.admin) {
+  if (message.author.id == admin) {
     switch (args[0]) {
       case "online":
         bot.user.setStatus("online");

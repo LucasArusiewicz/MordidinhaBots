@@ -1,7 +1,9 @@
 const Discord = require("discord.js");
 
 const { Comandos, Helpers } = require("./comandos");
-const { botConfig } = require("../config");
+const {
+  botConfig: { name, token, status, prefixCmd, prefixName }
+} = require("../config");
 
 const { Logger } = require("../utils/log");
 let logger = new Logger("BOT", "bot");
@@ -13,10 +15,10 @@ logger.info("Criando Bot");
 clientDiscord.on("ready", onReadyBot);
 clientDiscord.on("message", onMessage);
 
-clientDiscord.login(botConfig.token);
+clientDiscord.login(token);
 
 async function onReadyBot() {
-  clientDiscord.user.setActivity(botConfig.status);
+  clientDiscord.user.setActivity(status);
   logger.info(
     `Logado como ${clientDiscord.user.username}#${clientDiscord.user.discriminator}.`
   );
@@ -34,10 +36,10 @@ async function onMessage(message) {
   const { content } = message;
 
   if (message.author.equals(clientDiscord.user)) return;
-  if (!content.startsWith(botConfig.prefixCmd)) return;
+  if (!content.startsWith(prefixCmd)) return;
 
   let mensagemArray = content.split(" ");
-  let comando = mensagemArray[0].slice(botConfig.prefixCmd.length);
+  let comando = mensagemArray[0].slice(prefixCmd.length);
   let args = mensagemArray.slice(1);
 
   if (comando == "help") {
@@ -59,7 +61,7 @@ async function onMessage(message) {
 function getFooterEmbed() {
   return {
     icon_url: clientDiscord.user.avatarURL,
-    text: `${botConfig.prefixName}${botConfig.name}`
+    text: `${prefixName}${name}`
   };
 }
 

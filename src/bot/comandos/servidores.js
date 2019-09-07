@@ -1,8 +1,10 @@
-const { botConfig } = require("../../config");
+const {
+  botConfig: { admin }
+} = require("../../config");
 const { getPropsDefaultEmbed } = require("../bot");
 
 module.exports.run = async (bot, message, args) => {
-  if (message.author.id == botConfig.admin) {
+  if (message.author.id == admin) {
     let servers = bot.guilds.array();
     let servidores = [];
 

@@ -9,5 +9,5 @@ logger.info("Servidor Criado !");
 logger.info(`${appConfig.base_url}:${appConfig.port}`);
 
 module.exports = {
-  app: app
+  app
 };
