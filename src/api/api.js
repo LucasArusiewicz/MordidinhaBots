@@ -1,5 +1,6 @@
 const express = require("express");
 const { raiz, bot, sistema } = require("./routes");
+const cors = require("cors");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
 
@@ -27,9 +28,11 @@ class Api {
 
   middlewares() {
     logger.verbose("Carregando middlewares.");
+    this.server.use(cors());
     this.server.use(customMorgan());
     this.server.use(express.json());
     this.server.use(bodyParser.urlencoded({ extended: true }));
+    this.server.use(express.static("src/app/build"));
   }
 
   routes() {
