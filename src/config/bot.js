@@ -4,5 +4,6 @@ module.exports = {
   token: process.env.BOT_TOKEN,
   status: process.env.BOT_STATUS,
   prefixName: process.env.BOT_PREFIX_NAME,
-  prefixCmd: process.env.BOT_PREFIX_CMD
+  prefixCmd: process.env.BOT_PREFIX_CMD,
+  timeMessage: process.env.BOT_TIME_MESSAGE
 };
